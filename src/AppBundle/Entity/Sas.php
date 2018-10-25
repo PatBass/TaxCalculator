@@ -65,6 +65,7 @@ class Sas extends Entreprise
 
     public function getTaxValue($ca)
     {
+        $ca = (float)$ca;
         $tax = 33 * $ca / 100;
         return $tax;
     }

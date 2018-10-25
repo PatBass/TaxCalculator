@@ -35,11 +35,6 @@ abstract class Entreprise
      */
     private $denomination;
 
-    public function __construct($ca)
-    {
-        $ca = (int) $ca;
-    }
-
     /**
      * Get id
      *

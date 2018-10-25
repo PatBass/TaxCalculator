@@ -34,6 +34,7 @@ class AutoEntreprise extends Entreprise
 
     public function getTaxValue($ca)
     {
+        $ca = (float)$ca;
         $tax = 25 * $ca / 100;
         return $tax;
     }

@@ -18,11 +18,11 @@ class CalculatorController extends Controller
      */
     public function calculatorAction(Request $request)
     {
-        $sas = new Sas(200000);
+        $sas = new Sas();
 
         $caSas = $sas->getTaxValue(200000);
 
-        $autoEntreprise = new Sas(400000);
+        $autoEntreprise = new Sas();
 
         $caAutoEntreprise = $autoEntreprise->getTaxValue(400000);
 
