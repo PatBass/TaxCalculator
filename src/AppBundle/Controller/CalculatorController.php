@@ -18,17 +18,21 @@ class CalculatorController extends Controller
      */
     public function calculatorAction(Request $request)
     {
+        $turnoverProvider = $this->get('turnover_provider');
+        $turnoverSas = ($turnoverProvider->getTurnover())['ca_sas'];
+        $turnoverAutoEntreprise = ($turnoverProvider->getTurnover())['ca_auto_entreprise'];
+
         $sas = new Sas();
 
-        $caSas = $sas->getTaxValue(200000);
+        $taxSas = $sas->getTaxValue($turnoverSas);
 
         $autoEntreprise = new Sas();
 
-        $caAutoEntreprise = $autoEntreprise->getTaxValue(400000);
+        $taxAutoEntreprise = $autoEntreprise->getTaxValue($turnoverAutoEntreprise);
 
         return $this->render('calculator/index.html.twig', array(
-            'ca_sas' => $caSas,
-            'ca_auto_entreprise' => $caAutoEntreprise
+            'tax_sas' => $taxSas,
+            'tax_auto_entreprise' => $taxAutoEntreprise
         ));
     }
 }
