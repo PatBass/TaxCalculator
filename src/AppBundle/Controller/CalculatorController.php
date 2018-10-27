@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\AutoEntreprise;
 use AppBundle\Entity\Sas;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,7 +27,7 @@ class CalculatorController extends Controller
 
         $taxSas = $sas->getTaxValue($turnoverSas);
 
-        $autoEntreprise = new Sas();
+        $autoEntreprise = new AutoEntreprise();
 
         $taxAutoEntreprise = $autoEntreprise->getTaxValue($turnoverAutoEntreprise);
 
